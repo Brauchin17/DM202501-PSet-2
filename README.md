@@ -64,3 +64,15 @@ Se creó un rol dedicado llamado USUARIO_TECNICO y un usuario asociado a dicho r
 ## Test DBT
 
 Todos los tests definidos en dbt (not_null, unique, accepted_values, relationships) pasan correctamente, garantizando la calidad e integridad de los datos. Además, se generó la documentación de modelos y columnas junto con el lineage, permitiendo visualizar las dependencias entre tablas y la trazabilidad completa de los datos, pese a eso existen columnas con gran canitdad de NULL, por ejemplo al unificarse las tablas existian columnas en green que no estaban en yellow y viceversa que fueron rellenados con NULL.
+
+
+## Checklist del proyecto
+
+- [x] **Cargados todos los meses 2015–2025** (Parquet) de Yellow y Green; matriz de cobertura en README.
+- [x] **Mage** orquesta backfill mensual con idempotencia y metadatos por lote.
+- [x] **Bronze** (raw) refleja fielmente el origen; **Silver** unifica/escaliza; **Gold** en estrella con fct_trips y dimensiones clave.
+- [x] **Clustering** aplicado a fct_trips con evidencia antes/después (Query Profile, pruning).
+- [x] **Secrets** y **cuenta de servicio** con permisos mínimos (evidencias sin exponer valores).
+- [ ] **Tests dbt** (not_null, unique, accepted_values, relationships) pasan; **docs** y **lineage** generados.
+- [x] Notebook con respuestas a las **5 preguntas de negocio** desde **gold**.
+
