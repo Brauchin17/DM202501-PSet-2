@@ -1,0 +1,214 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_date.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_date.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_date
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_date
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_payment_type.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_payment_type.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_payment_type
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_payment_type
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_rate_code.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_rate_code.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_rate_code
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_rate_code
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_service_type.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_service_type.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_service_type
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_service_type
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_time.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_time.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_time
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_time
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_trip_type.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_trip_type.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_trip_type
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_trip_type
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_vendor.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_vendor.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_vendor
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_vendor
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/dim_zone.sql
+    file_source:
+      path: dbt/scheduler/models/clean/dim_zone.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/dim_zone
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/dim_zone
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_project_name: dbt/scheduler
+    file_path: dbt/scheduler/models/clean/fct_trips.sql
+    file_source:
+      path: dbt/scheduler/models/clean/fct_trips.sql
+      project_path: dbt/scheduler
+    limit: 1000
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dbt/scheduler/models/clean/fct_trips
+  retry_config: null
+  status: updated
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/scheduler/models/clean/fct_trips
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-09-29 19:43:18.375818+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: taxi_trips_clustering
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: taxi_trips_clustering
+variables_dir: /home/src/mage_data/scheduler
+widgets: []
