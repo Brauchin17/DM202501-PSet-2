@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select payment_type_sk
+from NY_TAXI.GOLD.fct_trips
+where payment_type_sk is null
+
+

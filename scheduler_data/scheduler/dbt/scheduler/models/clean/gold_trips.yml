@@ -1,0 +1,128 @@
+version: 2
+
+models:
+  - name: fct_trips
+    description: "Tabla de hechos con información de los viajes de taxi"
+    columns:
+      - name: trip_id
+        description: "ID único del viaje"
+        tests:
+          - not_null
+          - unique
+
+      - name: pickup_date_sk
+        description: "Clave surrogate de fecha de recogida"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_sk
+
+      - name: pickup_time_sk
+        description: "Clave surrogate de hora de recogida"
+        tests:
+          - not_null
+
+      - name: dropoff_date_sk
+        description: "Clave surrogate de fecha de destino"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_sk
+
+      - name: dropoff_time_sk
+        description: "Clave surrogate de hora de destino"
+        tests:
+          - not_null
+
+      - name: pu_zone_sk
+        description: "Zona de recogida"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_zone')
+              field: zone_sk
+
+      - name: do_zone_sk
+        description: "Zona de destino"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_zone')
+              field: zone_sk
+
+      - name: vendor_sk
+        description: "Vendor de la compañía de taxi"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_vendor')
+              field: vendor_sk
+
+      - name: rate_code_sk
+        description: "Código de tarifa"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_rate_code')
+              field: rate_code_sk
+
+      - name: payment_type_sk
+        description: "Tipo de pago"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_payment_type')
+              field: payment_type_sk
+
+      - name: service_type_sk
+        description: "Tipo de servicio"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_service_type')
+              field: service_type_sk
+
+      - name: trip_type_sk
+        description: "Tipo de viaje"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_trip_type')
+              field: trip_type_sk
+
+      - name: trip_distance
+        description: "Distancia del viaje en millas"
+        tests:
+          - not_null
+
+      - name: fare_amount
+        description: "Monto de la tarifa base"
+        tests:
+          - not_null
+
+      - name: tip_amount
+        description: "Monto de la propina"
+        tests:
+          - not_null
+
+      - name: tolls_amount
+        description: "Monto de los peajes"
+        tests:
+          - not_null
+
+      - name: total_amount
+        description: "Monto total del viaje"
+        tests:
+          - not_null
+
+      - name: passenger_count
+        description: "Número de pasajeros"
+        tests:
+          - not_null
+
+      - name: trip_duration_minutes
+        description: "Duración del viaje en minutos"
+        tests:
+          - not_null
