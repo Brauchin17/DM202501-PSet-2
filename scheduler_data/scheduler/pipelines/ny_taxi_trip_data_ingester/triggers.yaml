@@ -1,0 +1,16 @@
+triggers:
+- description: null
+  envs: []
+  last_enabled_at: 2025-09-19 21:53:53.033733
+  name: spectacular music
+  pipeline_uuid: yelow_trip_data_ingester
+  schedule_interval: null
+  schedule_type: api
+  settings: null
+  sla: null
+  start_time: 2025-09-19 21:53:00
+  status: active
+  token: d50c3e81bcf7441ebdab6448c600a3e9
+  variables:
+    anio: 2015
+    mes: '01'
