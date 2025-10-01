@@ -1,0 +1,13 @@
+scheduler:
+    target: dev
+    outputs:
+        dev:
+            type: snowflake
+            database: NY_TAXI
+            user: "{{ mage_secret_var('user') }}"
+            password: "{{ mage_secret_var('contra') }}"
+            role: USUARIO_TECNICO
+            schema: GOLD
+            account: ZBYJVEL-ASC58888
+            warehouse: COMPUTE_WH
+            
