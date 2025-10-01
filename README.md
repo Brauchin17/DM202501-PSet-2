@@ -55,7 +55,7 @@ Esta estructura soporta consultas eficientes y escalables, facilitando tanto an�
 
 ## Clustering
 
-Se aplicó clustering en Snowflake sobre la tabla de hechos FCT_TRIPS para mejorar el rendimiento de las consultas analíticas. Las columnas seleccionadas para clustering fueron aquellas más utilizadas en filtros de consultas, como PU_ZONE_SK, DO_ZONE_SK, TRIP_DATE y TRIP_TIME, entre otras.
+Se aplicó clustering en Snowflake sobre la tabla de hechos FCT_TRIPS para mejorar el rendimiento de las consultas analíticas. Las columnas seleccionadas para clustering fueron aquellas más utilizadas en filtros de consultas, siendo las clustering keys: PICKUP_DATE_SK, PU_ZONE_SK, al comprobar la eficiencia del cluster que se obtuvo mediante el comando de SQL: `SELECT SYSTEM$CLUSTERING_INFORMATION('TABLE')`, se logro conseguir un depth = 2.0033, siendo que esto asegura un prunning mas preciso porque cada micro particion tiene valores mas parecidos. Considerando que el 1 es el perfecto es un clustering bastante bueno, ya que son dos de las keys mas usadas a la hora de consultas.
 
 ## Permisos
 
@@ -63,16 +63,24 @@ Se creó un rol dedicado llamado USUARIO_TECNICO y un usuario asociado a dicho r
 
 ## Test DBT
 
-Todos los tests definidos en dbt (not_null, unique, accepted_values, relationships) pasan correctamente, garantizando la calidad e integridad de los datos. Además, se generó la documentación de modelos y columnas junto con el lineage, permitiendo visualizar las dependencias entre tablas y la trazabilidad completa de los datos, pese a eso existen columnas con gran canitdad de NULL, por ejemplo al unificarse las tablas existian columnas en green que no estaban en yellow y viceversa que fueron rellenados con NULL.
+Todos los tests definidos en dbt (not_null, unique, accepted_values, relationships) pasan correctamente en la mayoría de columnas de la tabla de gold `fct_trips`, garantizando la calidad e integridad de los datos. Aqui las columnas que fallaron:
+  - dropoff_time_sk FAIL 833456233, estos fueron manejados en silver al existir un dropoff o un pickup en null se marcaba en una nueva columna con `true` o `false`, llamada `has_invalid_timing`.
+  - pickup_time FAIL 833642545.
+  - passenger_count FAIL 18808267.
+  - payment_type FAIL 1904297.
+  - trips_rate_code FAIL 18808267.
+  - trip_type FAIL 786295252, esta cantidad se explica dado a que uno de los 2 servicios no tenia dicha columna por lo cual se lleno de null.
+Dando un total de 6 errores y 23 pass.
+
+No se borraron las columnas con NULL, ya que NULL indica información faltante, no necesariamente que el registro entero sea inútil, podiendo perder datos e información importante.
 
 
 ## Checklist del proyecto
-
 - [x] **Cargados todos los meses 2015–2025** (Parquet) de Yellow y Green; matriz de cobertura en README.
 - [x] **Mage** orquesta backfill mensual con idempotencia y metadatos por lote.
 - [x] **Bronze** (raw) refleja fielmente el origen; **Silver** unifica/escaliza; **Gold** en estrella con fct_trips y dimensiones clave.
 - [x] **Clustering** aplicado a fct_trips con evidencia antes/después (Query Profile, pruning).
 - [x] **Secrets** y **cuenta de servicio** con permisos mínimos (evidencias sin exponer valores).
-- [ ] **Tests dbt** (not_null, unique, accepted_values, relationships) pasan; **docs** y **lineage** generados.
+- [x] **Tests dbt** (not_null, unique, accepted_values, relationships) pasan; **docs** y **lineage** generados.
 - [x] Notebook con respuestas a las **5 preguntas de negocio** desde **gold**.
 
